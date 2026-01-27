@@ -11,6 +11,7 @@ const leaders = [
     name: "Aviram Sella",
     role: "Strategic Business Development, IDF Brigadier General (Res.)",
     image: "/images/team/aviram-sella.png",
+    initialVisible: 4,
     bio: [
       "IDF Brigadier General (Res.)",
       "BA Business Administration, IDC Israel",
@@ -113,14 +114,14 @@ function LeaderCard({ leader, index }: { leader: (typeof leaders)[0]; index: num
         </div>
         <div className="p-6 flex-1 flex flex-col">
           <ul className="space-y-2 flex-1">
-            {(expanded ? leader.bio : leader.bio.slice(0, 2)).map((item, i) => (
+            {(expanded ? leader.bio : leader.bio.slice(0, leader.initialVisible ?? 2)).map((item, i) => (
               <li key={i} className="flex items-start gap-2 text-sm text-charcoal leading-relaxed">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-deep-blue shrink-0" />
                 {item}
               </li>
             ))}
           </ul>
-          {leader.bio.length > 2 && (
+          {leader.bio.length > (leader.initialVisible ?? 2) && (
             <button
               onClick={() => setExpanded(!expanded)}
               className="mt-4 text-deep-blue text-sm font-semibold hover:underline"

@@ -18,8 +18,8 @@ interface Site {
 /* ── World map points (Israel = single HQ dot, 3 international) ── */
 const worldPoints = [
   { id: "israel-hq", label: "Israel HQ", x: 55.5, y: 50, type: "hq" as const },
-  { id: "germany", label: "Metalicone GmbH", x: 50.5, y: 38.5, type: "strategic" as const },
-  { id: "usa", label: "United States", x: 24.0, y: 43.5, type: "strategic" as const },
+  { id: "germany", label: "Metalicone GmbH", x: 49, y: 40, type: "strategic" as const },
+  { id: "usa", label: "United States", x: 25.0, y: 45.5, type: "strategic" as const },
   { id: "india", label: "Neolync Solutions", x: 69.5, y: 57.5, type: "strategic" as const },
 ];
 
@@ -111,12 +111,12 @@ const regionSummary = [
 
 /* ── Zoom circle positions: 6 points distributed vertically inside circle ── */
 const zoomPositions = [
-  { x: 53, y: 15 },  // Kiryat Shmona (northernmost)
-  { x: 45, y: 30 },  // Karmiel
-  { x: 55, y: 42 },  // Lavon
-  { x: 45, y: 55 },  // Nesher
-  { x: 55, y: 68 },  // Holon
-  { x: 50, y: 82 },  // Yavne (southernmost)
+  { x: 54, y: 15 },  // Kiryat Shmona (northernmost)
+  { x: 50, y: 30 },  // Karmiel
+  { x: 53, y: 25 },  // Lavon
+  { x: 49, y: 25 },  // Nesher
+  { x: 48, y: 40 },  // Holon
+  { x: 45, y: 43 },  // Yavne (southernmost)
 ];
 
 /* ── Pulse Hotspot (reusable) ── */
@@ -250,7 +250,7 @@ export default function GlobalReachPage() {
                 return (
                   <div
                     key={pt.id}
-                    className="absolute z-20 group"
+                    className="absolute z-999 group"
                     style={{
                       left: `${pt.x}%`,
                       top: `${pt.y}%`,
