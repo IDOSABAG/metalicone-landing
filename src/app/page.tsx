@@ -58,7 +58,7 @@ export default function Home() {
           backgroundSize: "80px 80px",
         }} />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center pt-24 lg:pt-0">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -186,7 +186,7 @@ export default function Home() {
       <section className="py-24 lg:py-32 bg-off-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <FadeIn direction="right">
+            <FadeIn direction="right" className="order-2 lg:order-1">
               <div className="relative rounded-2xl overflow-hidden shadow-xl">
                 <Image
                   src="/images/image_2f9502.png"
@@ -197,7 +197,7 @@ export default function Home() {
                 />
               </div>
             </FadeIn>
-            <FadeIn delay={0.2}>
+            <FadeIn delay={0.2} className="order-1 lg:order-2">
               <div>
                 <span className="text-deep-blue font-semibold text-sm tracking-[0.2em] uppercase">Innovation &amp; R&amp;D</span>
                 <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
@@ -247,7 +247,7 @@ export default function Home() {
           </FadeIn>
 
           <div className="mt-16 grid lg:grid-cols-2 gap-16 items-center">
-            <FadeIn delay={0.1}>
+            <FadeIn delay={0.1} className="order-2 lg:order-1">
               <div className="relative rounded-2xl overflow-hidden shadow-xl">
                 <Image
                   src="/images/semiconductor-fab.png"
@@ -258,7 +258,7 @@ export default function Home() {
                 />
               </div>
             </FadeIn>
-            <FadeIn delay={0.2}>
+            <FadeIn delay={0.2} className="order-1 lg:order-2">
               <div className="grid sm:grid-cols-2 gap-5">
                 {capabilities.map((cap) => (
                   <div key={cap.title} className="bg-off-white border border-light-gray rounded-xl p-5 hover:shadow-md transition-shadow">
