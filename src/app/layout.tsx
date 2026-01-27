@@ -1,19 +1,15 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Metalicone Group | The Industrial Home — Global Partner to Industry Leaders",
+  title: {
+    default: "Metalicone Group | The Industrial Home",
+    template: "%s | Metalicone Group",
+  },
   description:
-    "Metalicone Group is a global industrial leader specializing in precision-engineered components and assembly solutions for semiconductors, commercial printing, aerospace, power generation, transportation, and engine & hydraulics.",
-  keywords: [
-    "Metalicone",
-    "precision manufacturing",
-    "semiconductors",
-    "CNC machining",
-    "industrial components",
-    "aerospace",
-    "commercial printing",
-  ],
+    "Global industrial leader specializing in precision-engineered components and assembly solutions for semiconductors, commercial printing, aerospace, power generation, transportation, and engine & hydraulics.",
 };
 
 export default function RootLayout({
@@ -23,7 +19,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
