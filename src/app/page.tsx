@@ -172,7 +172,7 @@ export default function Home() {
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-deep-blue/90 to-transparent p-6">
                   <div className="text-white text-center">
-                    <div className="text-3xl font-bold">0.001 mm</div>
+                    
                     <div className="text-sm text-white/70">Accuracy on Every Part</div>
                   </div>
                 </div>
