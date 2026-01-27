@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 
 const footerLinks = {
@@ -31,15 +32,14 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div>
-            <Link href="/" className="flex items-center gap-3 mb-5">
-              <svg width="36" height="36" viewBox="0 0 100 100" fill="none">
-                <path d="M50 15L18 38V85H38V55H62V85H82V38L50 15Z" stroke="white" strokeWidth="2.5" fill="none" />
-                <text x="50" y="52" textAnchor="middle" dominantBaseline="middle" fill="white" fontSize="28" fontWeight="bold" fontFamily="Montserrat, sans-serif">M</text>
-              </svg>
-              <div>
-                <span className="text-lg font-bold tracking-wide">METALICONE</span>
-                <span className="block text-[9px] font-semibold tracking-[0.3em] text-white/50 uppercase">GROUP</span>
-              </div>
+            <Link href="/" className="flex items-center mb-5">
+              <Image
+                src="/images/metalicone-logo2.png"
+                alt="Metalicone Technologies"
+                width={160}
+                height={42}
+                className="h-9 w-auto brightness-0 invert"
+              />
             </Link>
             <p className="text-white/40 text-sm leading-relaxed">
               The Industrial Home — Your most trusted partner in

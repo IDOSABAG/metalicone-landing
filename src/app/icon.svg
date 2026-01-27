@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="12" fill="#fff"/>
+  <!-- Red cone mark -->
+  <path d="M32 8 L44 38 L32 32 L20 38 Z" fill="#C1272D"/>
+  <!-- Gray "o" ring -->
+  <ellipse cx="32" cy="44" rx="14" ry="12" fill="none" stroke="#6D7B8D" stroke-width="5"/>
+</svg>

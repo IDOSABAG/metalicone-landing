@@ -28,7 +28,7 @@ export default function CapabilitiesPage() {
         title="Capabilities & Technologies"
         subtitle="Engineering Excellence"
         description="Engineering expertise, proven trusted solutions, and supply chain excellency — advanced, innovative manufacturing for over 3 decades."
-        backgroundImage="/images/capabilities-hero.png"
+        backgroundImage="/images/semiconductor-fab.png"
       />
 
       {/* Precision Accuracy Section */}
@@ -66,7 +66,7 @@ export default function CapabilitiesPage() {
             </FadeIn>
             <FadeIn delay={0.2} direction="left">
               <div className="relative rounded-2xl overflow-hidden shadow-xl">
-                <Image src="/images/capabilities-hero.png" alt="Digital precision measurement — accuracy to 0.001 mm" width={700} height={500} className="object-cover w-full" />
+                <Image src="/images/semiconductor-fab.png" alt="Semiconductor FAB precision measurement — accuracy to 0.001 mm" width={700} height={500} className="object-cover w-full" />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-deep-blue/90 to-transparent p-6">
                   <div className="text-white text-center">
                     <div className="text-3xl font-bold">0.001 mm</div>

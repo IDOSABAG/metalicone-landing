@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -76,50 +77,17 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
-            <div className="relative">
-              <svg width="44" height="44" viewBox="0 0 100 100" fill="none">
-                <path
-                  d="M50 8L12 35V90H40V60H60V90H88V35L50 8Z"
-                  fill={showTransparent ? "white" : "#004B87"}
-                  opacity="0.15"
-                />
-                <path
-                  d="M50 15L18 38V85H38V55H62V85H82V38L50 15Z"
-                  stroke={showTransparent ? "white" : "#004B87"}
-                  strokeWidth="3"
-                  fill="none"
-                />
-                <text
-                  x="50"
-                  y="52"
-                  textAnchor="middle"
-                  dominantBaseline="middle"
-                  fill={showTransparent ? "white" : "#004B87"}
-                  fontSize="28"
-                  fontWeight="bold"
-                  fontFamily="Montserrat, sans-serif"
-                >
-                  M
-                </text>
-              </svg>
-            </div>
-            <div>
-              <span
-                className={`text-xl font-bold tracking-wide font-[family-name:var(--font-heading)] ${
-                  showTransparent ? "text-white" : "text-deep-blue"
-                }`}
-              >
-                METALICONE
-              </span>
-              <span
-                className={`block text-[10px] font-semibold tracking-[0.3em] uppercase ${
-                  showTransparent ? "text-white/70" : "text-charcoal"
-                }`}
-              >
-                GROUP
-              </span>
-            </div>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/images/metalicone-logo2.png"
+              alt="Metalicone Technologies"
+              width={180}
+              height={48}
+              priority
+              className={`h-10 w-auto transition-all duration-300 ${
+                showTransparent ? "brightness-0 invert" : ""
+              }`}
+            />
           </Link>
 
           {/* Desktop Links */}

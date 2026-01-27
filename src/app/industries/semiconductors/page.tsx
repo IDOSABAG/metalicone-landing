@@ -24,7 +24,7 @@ export default function SemiconductorsPage() {
         title="Semiconductors"
         subtitle="Core Industry"
         description="Applying our broad science and engineering capabilities to create components, systems and solutions that advance semiconductor manufacturing."
-        backgroundImage="/images/semiconductor-fab.png"
+        backgroundImage="/images/image_3ffe1e.png"
       />
 
       <section className="py-24 lg:py-32 bg-white">
@@ -51,7 +51,7 @@ export default function SemiconductorsPage() {
             <FadeIn delay={0.2} direction="left">
               <div className="relative rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src="/images/semiconductor-fab.png"
+                  src="/images/image_40def8.png"
                   alt="Semiconductor FAB equipment manufacturing"
                   width={700}
                   height={500}

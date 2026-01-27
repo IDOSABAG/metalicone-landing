@@ -12,6 +12,7 @@ interface Site {
   region: string;
   specialty: string;
   type: "manufacturing" | "strategic";
+  image?: string;
 }
 
 /* ── World map points (Israel = single HQ dot, 3 international) ── */
@@ -30,6 +31,7 @@ const israelSites: Site[] = [
     region: "Israel",
     specialty: "Design and manufacturing of critical parts and complex mechanical assemblies for advanced Armored Fighting Vehicle (AFV) platforms and sophisticated weapon systems. Specializing in defense-grade precision for mission-critical applications.",
     type: "manufacturing",
+    image: "/images/image_40019f.png",
   },
   {
     id: "karmiel",
@@ -37,6 +39,7 @@ const israelSites: Site[] = [
     region: "Israel",
     specialty: "Assembly HUB — Full Turn-Key solutions for defense and industrial projects. Complete project management from component sourcing through final integration, testing, and delivery.",
     type: "manufacturing",
+    image: "/images/image_3ffe1e.png",
   },
   {
     id: "lavon",
@@ -44,6 +47,7 @@ const israelSites: Site[] = [
     region: "Israel",
     specialty: "CNC precision machining of large parts with high accuracy and complex engineering geometry. Specializing in multi-item sub-assembly integration for complex systems requiring numerous precision components.",
     type: "manufacturing",
+    image: "/images/image_3ffa3f.png",
   },
   {
     id: "nesher",
@@ -51,6 +55,7 @@ const israelSites: Site[] = [
     region: "Israel",
     specialty: "Precision castings — Investment (lost wax) casting facility for aerospace and industrial applications. Near-net-shape manufacturing of complex geometries in high-performance alloys.",
     type: "manufacturing",
+    image: "/images/image_3ffaf4.png",
   },
   {
     id: "holon",
@@ -58,6 +63,7 @@ const israelSites: Site[] = [
     region: "Israel",
     specialty: "Design and manufacturing of complex spring systems for defense and high-tech industries. Advanced engineering of springs and elastic components for demanding operational environments.",
     type: "manufacturing",
+    image: "/images/image_18gerg.png",
   },
   {
     id: "yavne",
@@ -65,6 +71,7 @@ const israelSites: Site[] = [
     region: "Israel",
     specialty: "High-volume CNC precision machining center. Focused on scalable production runs with consistent quality and rapid turnaround for commercial and industrial clients.",
     type: "manufacturing",
+    image: "/images/image_3ffa3f.png",
   },
 ];
 
@@ -104,7 +111,7 @@ const regionSummary = [
 
 /* ── Zoom circle positions: 6 points distributed vertically inside circle ── */
 const zoomPositions = [
-  { x: 50, y: 15 },  // Kiryat Shmona (northernmost)
+  { x: 53, y: 15 },  // Kiryat Shmona (northernmost)
   { x: 45, y: 30 },  // Karmiel
   { x: 55, y: 42 },  // Lavon
   { x: 45, y: 55 },  // Nesher
@@ -124,45 +131,44 @@ function PulsePoint({
   isActive?: boolean;
   size?: number;
 }) {
-  const color = isHQ ? "bg-white" : isStrategic ? "bg-[#5BB0F0]" : "bg-white";
-  const colorFaded = isHQ ? "bg-white/60" : isStrategic ? "bg-[#5BB0F0]/60" : "bg-white/60";
+  const colorFaded = isHQ ? "bg-white/40" : isStrategic ? "bg-[#5BB0F0]/40" : "bg-white/40";
   const dotSize = isHQ ? size + 4 : size;
 
   return (
     <>
       <motion.span
-        className={`absolute rounded-full ${color}`}
+        className={`absolute rounded-full ${colorFaded}`}
         style={{
-          width: dotSize * 1.75,
-          height: dotSize * 1.75,
-          top: -(dotSize * 0.375),
-          left: -(dotSize * 0.375),
+          width: dotSize * 1.6,
+          height: dotSize * 1.6,
+          top: -(dotSize * 0.3),
+          left: -(dotSize * 0.3),
         }}
-        animate={{ scale: [1, 2.0], opacity: [0.5, 0] }}
-        transition={{ duration: 2.2, repeat: Infinity, ease: "easeOut" }}
+        animate={{ scale: [1, 1.4, 2], opacity: [0, 0.5, 0] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", times: [0, 0.3, 1] }}
       />
       <motion.span
         className={`absolute rounded-full ${colorFaded}`}
         style={{
-          width: dotSize * 1.25,
-          height: dotSize * 1.25,
-          top: -(dotSize * 0.125),
-          left: -(dotSize * 0.125),
+          width: dotSize * 1.3,
+          height: dotSize * 1.3,
+          top: -(dotSize * 0.15),
+          left: -(dotSize * 0.15),
         }}
-        animate={{ scale: [1, 1.6], opacity: [0.35, 0] }}
-        transition={{ duration: 2.2, repeat: Infinity, ease: "easeOut", delay: 0.5 }}
+        animate={{ scale: [1, 1.3, 1.7], opacity: [0, 0.4, 0] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", times: [0, 0.3, 1], delay: 0.8 }}
       />
       <motion.div
-        className={`relative rounded-full border-2 cursor-pointer shadow-lg ${
+        className={`relative rounded-full border-2 cursor-pointer ${
           isHQ
-            ? "bg-white border-white/90 shadow-white/40"
+            ? "bg-white border-white/90 shadow-[0_0_8px_rgba(255,255,255,0.3)]"
             : isStrategic
-              ? "bg-[#5BB0F0] border-[#5BB0F0]/60 shadow-[#5BB0F0]/40"
-              : "bg-white border-white/90 shadow-white/30"
-        } ${isActive ? "ring-4 ring-white/40 scale-125" : ""}`}
+              ? "bg-[#5BB0F0] border-[#5BB0F0]/60 shadow-[0_0_8px_rgba(91,176,240,0.3)]"
+              : "bg-white border-white/90 shadow-[0_0_8px_rgba(255,255,255,0.2)]"
+        } ${isActive ? "ring-3 ring-white/30 scale-110" : ""}`}
         style={{ width: dotSize, height: dotSize }}
-        whileHover={{ scale: 1.4 }}
-        transition={{ type: "spring", stiffness: 400 }}
+        whileHover={{ scale: 1.2 }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
       />
     </>
   );
@@ -214,6 +220,7 @@ export default function GlobalReachPage() {
                 width={1400}
                 height={700}
                 className="object-cover w-full"
+                priority
               />
 
               {/* ── SVG connector line from Israel HQ to zoom circle ── */}
@@ -243,7 +250,7 @@ export default function GlobalReachPage() {
                 return (
                   <div
                     key={pt.id}
-                    className="absolute z-10 group"
+                    className="absolute z-20 group"
                     style={{
                       left: `${pt.x}%`,
                       top: `${pt.y}%`,
@@ -283,7 +290,7 @@ export default function GlobalReachPage() {
 
               {/* ── Zoom Circle (Israel detail) ── */}
               <div
-                className="absolute z-20"
+                className="absolute z-20 pointer-events-none"
                 style={{
                   left: `${zoomCx}%`,
                   top: `${zoomCy}%`,
@@ -293,7 +300,7 @@ export default function GlobalReachPage() {
                 }}
               >
                 {/* Circle container */}
-                <div className="absolute inset-0 rounded-full overflow-hidden border-2 border-white/40 shadow-2xl">
+                <div className="absolute inset-0 rounded-full overflow-hidden border-2 border-white/40 shadow-2xl pointer-events-auto">
                   {/* Zoom background image */}
                   <Image
                     src="/images/israel-zoom.png"
@@ -421,15 +428,25 @@ export default function GlobalReachPage() {
                 Israel — <span className="text-deep-blue">6 Manufacturing Sites</span>
               </h3>
             </FadeIn>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {israelSites.map((site, i) => (
                 <FadeIn key={site.id} delay={i * 0.06}>
-                  <div className="bg-off-white border border-light-gray rounded-xl p-6 hover:shadow-md transition-shadow h-full">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-3 h-3 rounded-full bg-deep-blue" />
-                      <h4 className="font-bold text-foreground">{site.city}</h4>
+                  <div className="bg-white border border-light-gray rounded-2xl overflow-hidden hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
+                    <div className="relative h-48 overflow-hidden">
+                      <Image
+                        src={site.image!}
+                        alt={`${site.city} manufacturing facility`}
+                        fill
+                        className="object-cover transition-transform duration-500 hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                      <div className="absolute bottom-3 left-4 right-4">
+                        <h4 className="font-bold text-white text-lg">{site.city}</h4>
+                      </div>
                     </div>
-                    <p className="text-sm text-charcoal leading-relaxed">{site.specialty}</p>
+                    <div className="p-5 flex-1 flex flex-col">
+                      <p className="text-sm text-charcoal leading-relaxed flex-1">{site.specialty}</p>
+                    </div>
                   </div>
                 </FadeIn>
               ))}
@@ -440,21 +457,31 @@ export default function GlobalReachPage() {
                 Global — <span className="text-deep-blue">Strategic Partners & Operations</span>
               </h3>
             </FadeIn>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {strategicSites.map((site, i) => (
                 <FadeIn key={site.id} delay={i * 0.06}>
-                  <div className="bg-off-white border border-light-gray rounded-xl p-6 hover:shadow-md transition-shadow h-full">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-3 h-3 rounded-full bg-[#5BB0F0]" />
-                      <h4 className="font-bold text-foreground">{site.city}</h4>
-                      <span className="ml-auto text-xs text-charcoal-light uppercase tracking-wider font-semibold">
-                        {site.region}
+                  <div className="bg-white border border-light-gray rounded-2xl overflow-hidden hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
+                    <div className="relative h-48 overflow-hidden">
+                      <Image
+                        src="/images/global-reach-map2.png"
+                        alt={`${site.city} — ${site.region}`}
+                        fill
+                        className="object-cover blur-[2px] scale-110"
+                      />
+                      <div className="absolute inset-0 bg-deep-blue/60" />
+                      <div className="absolute bottom-3 left-4 right-4 flex items-end justify-between">
+                        <h4 className="font-bold text-white text-lg">{site.city}</h4>
+                        <span className="text-xs text-white/70 uppercase tracking-wider font-bold">
+                          {site.region}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="p-5 flex-1 flex flex-col">
+                      <p className="text-sm text-charcoal leading-relaxed flex-1">{site.specialty}</p>
+                      <span className="inline-block mt-3 text-xs font-semibold text-[#5BB0F0] bg-blue-50 px-2.5 py-1 rounded-full self-start">
+                        Strategic Partner
                       </span>
                     </div>
-                    <p className="text-sm text-charcoal leading-relaxed">{site.specialty}</p>
-                    <span className="inline-block mt-3 text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded">
-                      Strategic Partner
-                    </span>
                   </div>
                 </FadeIn>
               ))}
