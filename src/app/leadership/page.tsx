@@ -9,7 +9,7 @@ import FadeIn from "@/components/FadeIn";
 const leaders = [
   {
     name: "Aviram Sella",
-    role: "Strategic Business Development",
+    role: "Strategic Business Development, IDF Brigadier General (Res.)",
     image: "/images/team/aviram-sella.png",
     bio: [
       "IDF Brigadier General (Res.)",
@@ -21,7 +21,7 @@ const leaders = [
   },
   {
     name: "Dan Topaz",
-    role: "Managing Partner",
+    role: "Managing Partner, Harvard Business School Graduate",
     image: "/images/team/dan-topaz.png",
     bio: [
       "27 years journey at Ham-Let Group — scaling from machine shop to one of the world's 2 best manufacturers in fluid solutions with $150M turnover",
@@ -31,7 +31,7 @@ const leaders = [
   },
   {
     name: "Sam Topaz",
-    role: "Managing Partner",
+    role: "Managing Partner, Former CEO of Ham-Let Group",
     image: "/images/team/sam-topaz.png",
     bio: [
       "B.A. in Economics, Advanced Management studies at Harvard University",
@@ -64,7 +64,7 @@ const leaders = [
   },
   {
     name: "Tal Topaz",
-    role: "Managing Partner",
+    role: "Managing Partner, CEO of Roligo Dental Fund",
     image: "/images/team/tal-topaz.png",
     bio: [
       "LL.B. in Law & B.A. in Business from IDC, Israeli Bar Association member since 2010",

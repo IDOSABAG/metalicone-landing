@@ -10,7 +10,7 @@ const capabilities = [
   { title: "Deep Automated Drilling", metric: "600mm", metricLabel: "Max Depth", description: "Deep automated high-cycle drilling capabilities up to 600 mm depth, maintaining tight tolerances throughout the entire bore length." },
   { title: "Lapping & Deburring", metric: "Ra 0.1", metricLabel: "Surface", description: "Surface finishing to the highest standards — lapping achieves mirror-like finishes for sealing surfaces and critical interfaces." },
   { title: "EDM & WEDM", metric: "±2μm", metricLabel: "Tolerance", description: "Electrical Discharge Machining and Wire EDM for intricate geometries, hardened materials, and features unreachable by conventional tools." },
-  { title: "Complex Assembly", metric: "100%", metricLabel: "Integrated", description: "Complete system assembly — from sub-assemblies to fully integrated systems. Multi-item assemblies with comprehensive quality verification." },
+  { title: "Complex Assembly", metric: "100%", metricLabel: "Integrated", description: "Full Turn-Key assembly capabilities — from sub-assemblies to fully integrated systems with comprehensive quality verification and testing." },
 ];
 
 const qualityStandards = [
@@ -31,25 +31,21 @@ export default function CapabilitiesPage() {
         backgroundImage="/images/capabilities-hero.png"
       />
 
-      {/* Hero image section */}
+      {/* Precision Accuracy Section */}
       <section className="py-24 lg:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <FadeIn>
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+                <span className="text-deep-blue font-semibold text-sm tracking-[0.2em] uppercase">Micron-Level Accuracy</span>
+                <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground">
                   Precision Down to <span className="text-deep-blue">0.001 mm</span>
                 </h2>
                 <p className="mt-5 text-charcoal text-lg leading-relaxed">
                   Proven achievement of unprecedented levels of accuracy in complex component
                   production down to a single micron. Our leading, innovative engineering team
-                  meets the challenges of tomorrow with a variety of equipment, technologies,
-                  and capabilities.
-                </p>
-                <p className="mt-4 text-charcoal text-lg leading-relaxed">
-                  Ensures full alignment between part design and manufacturing technology.
-                  Maintaining unwavering commitment to quality, deliveries, and safety while
-                  constantly seeking excellence.
+                  ensures full alignment between part design and manufacturing technology —
+                  maintaining unwavering commitment to quality, deliveries, and safety.
                 </p>
                 <div className="mt-8">
                   <h4 className="font-bold text-foreground mb-3">Quality Certifications</h4>
@@ -70,14 +66,100 @@ export default function CapabilitiesPage() {
             </FadeIn>
             <FadeIn delay={0.2} direction="left">
               <div className="relative rounded-2xl overflow-hidden shadow-xl">
-                <Image src="/images/capabilities-hero.png" alt="Precision manufacturing capabilities" width={700} height={500} className="object-cover w-full" />
+                <Image src="/images/capabilities-hero.png" alt="Digital precision measurement — accuracy to 0.001 mm" width={700} height={500} className="object-cover w-full" />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-deep-blue/90 to-transparent p-6">
+                  <div className="text-white text-center">
+                    <div className="text-3xl font-bold">0.001 mm</div>
+                    <div className="text-sm text-white/70">Single micron precision</div>
+                  </div>
+                </div>
               </div>
             </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* Capabilities grid */}
+      {/* Complex Assembly & Cleanroom */}
+      <section className="py-24 lg:py-32 bg-off-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <FadeIn direction="right">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                <Image src="/images/clean-room-assembly.png" alt="Technician performing complex assembly in cleanroom environment" width={700} height={500} className="object-cover w-full" />
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <div>
+                <span className="text-deep-blue font-semibold text-sm tracking-[0.2em] uppercase">Full Turn-Key</span>
+                <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground">
+                  Complex Assembly & <span className="text-deep-blue">System Integration</span>
+                </h2>
+                <p className="mt-5 text-charcoal text-lg leading-relaxed">
+                  Our Full Turn-Key capabilities span from individual component manufacturing
+                  through complex sub-assembly integration to complete system delivery. Cleanroom
+                  environments, rigorous quality inspection, and comprehensive testing ensure
+                  every assembly meets the highest standards.
+                </p>
+                <ul className="mt-6 space-y-3">
+                  {[
+                    "Multi-item sub-assembly integration",
+                    "Cleanroom assembly environments",
+                    "Complete system testing and qualification",
+                    "End-to-end project management",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-3 text-charcoal">
+                      <span className="w-2 h-2 rounded-full bg-deep-blue shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* Precision Casting */}
+      <section className="py-24 lg:py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <FadeIn>
+              <div>
+                <span className="text-deep-blue font-semibold text-sm tracking-[0.2em] uppercase">Nesher Facility</span>
+                <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground">
+                  Precision Casting — <span className="text-deep-blue">Investment (Lost Wax)</span>
+                </h2>
+                <p className="mt-5 text-charcoal text-lg leading-relaxed">
+                  Our Nesher Industrial Zone facility specializes in investment casting (lost wax process),
+                  delivering near-net-shape components with exceptional surface finish and dimensional accuracy.
+                  This process is ideal for complex geometries in aerospace, defense, and industrial applications
+                  where conventional machining alone cannot achieve the required form.
+                </p>
+                <ul className="mt-6 space-y-3">
+                  {[
+                    "Lost wax investment casting",
+                    "Aerospace-grade alloys and superalloys",
+                    "Near-net-shape complex geometries",
+                    "Integrated post-casting CNC finishing",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-3 text-charcoal">
+                      <span className="w-2 h-2 rounded-full bg-deep-blue shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.2} direction="left">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                <Image src="/images/precision-casting.png" alt="Molten metal being poured in precision investment casting process" width={700} height={500} className="object-cover w-full" />
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Technologies Grid */}
       <section className="py-24 lg:py-32 bg-deep-blue relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{

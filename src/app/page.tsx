@@ -207,6 +207,61 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ─── CAREERS / THE INDUSTRIAL HOME ─── */}
+      <section id="careers" className="relative py-24 lg:py-32 overflow-hidden">
+        <Image
+          src="/images/factory-floor.png"
+          alt="Modern Metalicone production floor"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-deep-blue/80" />
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <FadeIn>
+              <span className="text-blue-200 font-semibold text-sm tracking-[0.2em] uppercase">The Industrial Home</span>
+              <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+                Build Your Career with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">Metalicone</span>
+              </h2>
+              <p className="mt-6 text-white/70 text-lg leading-relaxed">
+                Join a global industrial group where engineering excellence meets real impact.
+                We invest in our people — offering growth opportunities across 9 manufacturing
+                sites, advanced technology platforms, and a culture that values innovation,
+                precision, and teamwork.
+              </p>
+              <ul className="mt-8 space-y-3">
+                {["Work with cutting-edge CNC, EDM, and cleanroom technologies", "Grow within a global network — Israel, Germany, USA, India", "Collaborate with world-class OEMs across 6 industries", "Be part of a legacy founded by Steff Wertheimer"].map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-white/80">
+                    <span className="w-2 h-2 rounded-full bg-blue-300 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-10">
+                <Link href="/#contact" className="px-8 py-4 bg-white text-deep-blue font-bold rounded-full hover:bg-gray-100 transition-colors text-base inline-block">
+                  Get in Touch
+                </Link>
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.2} direction="left">
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { value: "9", label: "Manufacturing Sites" },
+                  { value: "6", label: "Industry Sectors" },
+                  { value: "30+", label: "Years of Excellence" },
+                  { value: "3", label: "Continents" },
+                ].map((stat) => (
+                  <div key={stat.label} className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center">
+                    <div className="text-3xl font-bold text-white">{stat.value}</div>
+                    <div className="text-sm text-white/60 mt-1">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
       {/* ─── CONTACT ─── */}
       <section id="contact" className="py-24 lg:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
