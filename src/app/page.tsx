@@ -85,7 +85,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed"
+            className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed"
           >
             Every industry demands innovation, uncompromising quality, and a partner who delivers
             at scale. With world-class engineering leadership, global manufacturing infrastructure,
@@ -109,7 +109,7 @@ export default function Home() {
             ].map((stat, i) => (
               <div key={i} className="text-center">
                 <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">{stat.value}</div>
-                <div className="mt-1 text-xs sm:text-sm text-white/50 tracking-wide">{stat.label}</div>
+                <div className="mt-1 text-xs sm:text-sm text-white/70 tracking-wide">{stat.label}</div>
               </div>
             ))}
           </motion.div>
@@ -120,10 +120,10 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="mt-8 sm:mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center"
           >
-            <Link href="/industries" className="px-6 sm:px-8 py-3.5 sm:py-4 bg-white text-deep-blue font-bold rounded-full hover:bg-gray-100 transition-colors text-sm sm:text-base">
+            <Link href="/industries" className="px-6 sm:px-8 py-3.5 sm:py-4 bg-deep-blue text-white font-bold rounded-full hover:bg-deep-blue-dark transition-colors text-sm sm:text-base shadow-lg shadow-deep-blue/30" style={{ textShadow: "none" }}>
               Explore Our Industries
             </Link>
-            <Link href="/#contact" className="px-6 sm:px-8 py-3.5 sm:py-4 border-2 border-white/30 text-white font-semibold rounded-full hover:bg-white/10 transition-colors text-sm sm:text-base">
+            <Link href="/#contact" className="px-6 sm:px-8 py-3.5 sm:py-4 border-2 border-white/40 text-white font-semibold rounded-full hover:bg-white/10 transition-colors text-sm sm:text-base backdrop-blur-sm" style={{ textShadow: "none" }}>
               Contact Us
             </Link>
           </motion.div>
@@ -329,7 +329,121 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── 5. UNWAVERING QUALITY ASSURANCE ─── */}
+      {/* ─── 5. LEADING THE SKIES — CIVIL AVIATION ─── */}
+      <section className="py-16 sm:py-24 lg:py-32 bg-off-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 items-center">
+            <FadeIn direction="right">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/civil-aviation.png"
+                  alt="Precision aerospace components for civil aviation manufactured by Metalicone Group"
+                  width={700}
+                  height={500}
+                  className="object-cover w-full"
+                />
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <div>
+                <span className="text-deep-blue font-semibold text-sm tracking-[0.2em] uppercase">Civil Aviation</span>
+                <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+                  Precision for the <span className="text-deep-blue">Future of Flight</span>
+                </h2>
+                <p className="mt-4 sm:mt-6 text-charcoal text-base sm:text-lg leading-relaxed">
+                  Metalicone Group manufactures high-precision edge components for commercial passenger
+                  aircraft — meeting the most stringent aerospace standards. Every part is produced under
+                  full AS9100D certification, ensuring absolute reliability where it matters most: in the sky.
+                </p>
+                <p className="mt-3 sm:mt-4 text-charcoal text-base sm:text-lg leading-relaxed">
+                  From structural assemblies to critical engine-adjacent components, our manufacturing
+                  capabilities cover the full spectrum of civil aviation requirements — including complex
+                  geometries, exotic alloys, and zero-defect delivery programs.
+                </p>
+                <div className="mt-6 sm:mt-8 flex flex-wrap gap-2 sm:gap-3">
+                  {["AS9100D Certified", "Flight-Critical Parts", "Exotic Alloys", "Zero-Defect Programs"].map((tag) => (
+                    <span key={tag} className="px-3 sm:px-4 py-1.5 sm:py-2 bg-deep-blue/5 text-deep-blue text-xs sm:text-sm font-medium rounded-full border border-deep-blue/10">{tag}</span>
+                  ))}
+                </div>
+                <div className="mt-6 sm:mt-8">
+                  <Link
+                    href="/industries/aerospace-defense"
+                    className="inline-flex items-center gap-2 text-deep-blue font-semibold text-sm hover:gap-3 transition-all"
+                  >
+                    Explore Aerospace &amp; Defense
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 6. SEMICONDUCTOR MASTERY ─── */}
+      <section className="py-16 sm:py-24 lg:py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 items-center">
+            <FadeIn delay={0.2} className="order-1 lg:order-2">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/applied-chuck.png"
+                  alt="Electrostatic chuck precision component for semiconductor FAB equipment"
+                  width={700}
+                  height={500}
+                  className="object-cover w-full"
+                />
+              </div>
+            </FadeIn>
+            <FadeIn className="order-2 lg:order-1">
+              <div>
+                <span className="text-deep-blue font-semibold text-sm tracking-[0.2em] uppercase">Semiconductor Mastery</span>
+                <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+                  Enabling Global Semiconductor <span className="text-deep-blue">Innovation</span>
+                </h2>
+                <p className="mt-4 sm:mt-6 text-charcoal text-base sm:text-lg leading-relaxed">
+                  Metalicone is a trusted partner to the world&apos;s leading FAB equipment manufacturers,
+                  supplying mission-critical core components including Electrostatic Chucks and Process
+                  Chambers — the heart of advanced chip fabrication.
+                </p>
+                <p className="mt-3 sm:mt-4 text-charcoal text-base sm:text-lg leading-relaxed">
+                  Our semiconductor division combines ultra-clean manufacturing environments, sub-micron
+                  precision machining, and deep materials expertise to deliver components that meet the
+                  extreme demands of next-generation lithography and deposition systems.
+                </p>
+                <div className="mt-6 sm:mt-8 grid grid-cols-2 gap-3 sm:gap-4">
+                  {[
+                    { value: "Sub-µm", label: "Precision Tolerances" },
+                    { value: "100%", label: "Clean-Room Standards" },
+                    { value: "Tier 1", label: "FAB Partnerships" },
+                    { value: "24/7", label: "Production Capacity" },
+                  ].map((stat) => (
+                    <div key={stat.label} className="bg-off-white border border-light-gray rounded-xl p-3 sm:p-4 text-center">
+                      <div className="text-lg sm:text-xl font-bold text-deep-blue">{stat.value}</div>
+                      <div className="text-xs text-charcoal mt-1">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-6 sm:mt-8">
+                  <Link
+                    href="/industries/semiconductors"
+                    className="inline-flex items-center gap-2 text-deep-blue font-semibold text-sm hover:gap-3 transition-all"
+                  >
+                    Explore Semiconductors
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 7. UNWAVERING QUALITY ASSURANCE ─── */}
       <section className="relative py-16 sm:py-24 lg:py-32 overflow-hidden">
         <Image
           src="/images/image_2f957b.png"
@@ -383,7 +497,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── 6. INDUSTRIES PREVIEW ─── */}
+      {/* ─── 8. INDUSTRIES PREVIEW ─── */}
       <section className="py-16 sm:py-24 lg:py-32 bg-off-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center max-w-3xl mx-auto">
@@ -415,7 +529,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── 7. GLOBAL PRESENCE TEASER ─── */}
+      {/* ─── 9. GLOBAL PRESENCE TEASER ─── */}
       <section className="py-16 sm:py-24 lg:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center max-w-3xl mx-auto">
@@ -491,7 +605,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── 8. CONTACT ─── */}
+      {/* ─── 10. CONTACT ─── */}
       <section id="contact" className="py-16 sm:py-24 lg:py-32 bg-off-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
