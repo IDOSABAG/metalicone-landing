@@ -82,10 +82,10 @@ export default function Navbar() {
             <Image
               src="/images/metalicone-logo-without-bg.png"
               alt="Metalicone Group"
-              width={180}
-              height={60}
+              width={220}
+              height={74}
               priority
-              className={`h-12 w-auto transition-all duration-300 ${
+              className={`h-14 sm:h-16 w-auto transition-all duration-300 ${
                 showTransparent ? "brightness-0 invert" : ""
               }`}
             />

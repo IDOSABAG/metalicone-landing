@@ -41,23 +41,23 @@ const worldPoints = [
 export default function Home() {
   return (
     <main>
+      {/* ─── HERO + BANNER WRAPPER ─── */}
+      <div className="min-h-screen flex flex-col bg-[#0a1628]">
       {/* ─── 1. HERO ─── */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#060d1a] via-[#0d1f3c] to-[#0a1628]">
+      <section className="relative flex-1 flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#060d1a] via-[#0d1f3c] to-[#0a1628]">
         <Image
           src="/images/home-page-picture.jpg"
           alt="Metalicone Group — precision components for defense, aerospace, agriculture, and industrial markets"
           fill
-          className="object-contain object-top sm:object-cover sm:object-center"
+          className="object-contain object-top sm:object-cover sm:object-[center_20%]"
           quality={90}
           priority
         />
         {/* Mobile: transparent top (show full image) → rich dark below */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0d1f3c] to-[#0a1628] sm:from-[#0a1628]/60 sm:via-[#0a1628]/30 sm:to-[#0a1628]/80" />
-        <div className="absolute inset-0 hidden sm:block bg-gradient-to-r from-[#0a1628]/50 via-transparent to-[#0a1628]/50" />
-        {/* Subtle radial glow for premium depth */}
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 50% 70%, rgba(0,75,135,0.12) 0%, transparent 60%)" }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0d1f3c]/40 to-[#0a1628] sm:from-transparent sm:via-transparent sm:to-[#0a1628]/40" />
+        <div className="absolute inset-0 hidden sm:block bg-gradient-to-r from-[#0a1628]/10 via-transparent to-[#0a1628]/10" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-[48vw] sm:pt-24 lg:pt-0">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-[48vw] sm:pt-24 lg:pt-0" style={{ textShadow: "0 2px 16px rgba(0,0,0,0.5), 0 1px 4px rgba(0,0,0,0.3)" }}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -72,12 +72,12 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight tracking-tight"
+            className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight"
           >
-            The Industrial Home.
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-200 to-white">
-              One Group. Infinite Precision.
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-200 to-white" style={{ textShadow: "none" }}>
+              Advanced Systems Engineering,
+              <br />
+              Integration, Production &amp; Delivery.
             </span>
           </motion.h1>
 
@@ -149,7 +149,7 @@ export default function Home() {
         <div className="relative">
           <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-[#0a1628] to-transparent z-10" />
           <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-[#0a1628] to-transparent z-10" />
-          <div className="flex animate-marquee whitespace-nowrap">
+          <div className="flex animate-marquee">
             {[...Array(2)].map((_, setIdx) => (
               <div key={setIdx} className="flex shrink-0">
                 {[
@@ -186,6 +186,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </div>
 
       {/* ─── 2. THE PRECISION IDENTITY ─── */}
       <section className="py-16 sm:py-24 lg:py-32 bg-white">
