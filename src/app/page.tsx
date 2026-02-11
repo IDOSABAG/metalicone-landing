@@ -75,10 +75,10 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight tracking-tight"
           >
-            Precision You Can Trust.
+            The Industrial Home.
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-200 to-white">
-              Capability You Can Scale.
+              One Group. Infinite Precision.
             </span>
           </motion.h1>
 
@@ -88,9 +88,12 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="mt-6 text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed"
           >
-            World-class engineering and manufacturing expertise — delivering
-            precision-engineered components and assembly solutions down to{" "}
-            <span className="text-white font-semibold">a single micron (0.001&nbsp;mm)</span>.
+            Every industry demands innovation, uncompromising quality, and a partner who delivers
+            at scale. With world-class engineering leadership, global manufacturing infrastructure,
+            and precision down to{" "}
+            <span className="text-white font-semibold">a single micron (0.001&nbsp;mm)</span>
+            {" "}— Metalicone Group is the strategic partner that turns your
+            toughest engineering challenges into production reality.
           </motion.p>
 
           <motion.div
@@ -132,6 +135,52 @@ export default function Home() {
             <div className="w-1.5 h-3 rounded-full bg-white/60" />
           </div>
         </motion.div>
+      </section>
+
+      {/* ─── GROUP COMPANIES BANNER ─── */}
+      <section className="bg-[#0a1628] border-b border-white/5 py-6 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-4">
+          <p className="text-center text-white/30 text-xs font-semibold tracking-[0.25em] uppercase">The Metalicone Group Companies</p>
+        </div>
+        <div className="relative">
+          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0a1628] to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0a1628] to-transparent z-10" />
+          <div className="flex animate-marquee whitespace-nowrap">
+            {[...Array(2)].map((_, setIdx) => (
+              <div key={setIdx} className="flex shrink-0">
+                {[
+                  { name: "Ramim Engineering", slug: "ramim-engineering", tagline: "Precision CNC & Assembly", logo: "/images/ramim-without-bg.png" },
+                  { name: "Peleg Nia", slug: "peleg-nia", tagline: "Complex Mechanical Components", logo: "/images/peleg-nia-removebg.png" },
+                  { name: "Simat", slug: "simat", tagline: "Surface Treatment Solutions", logo: "/images/simat-remove-bg.png" },
+                  { name: "Oren Springs", slug: "oren-springs", tagline: "Precision Springs & Wire Forms", logo: "/images/oren-springs-removebg.png" },
+                  { name: "Metalicone Germany GmbH", slug: "metalicone-germany", tagline: "European Engineering Hub", logo: "/images/gmbh-metalicone-removebg.png" },
+                ].map((company) => (
+                  <Link
+                    key={`${setIdx}-${company.slug}`}
+                    href={`/companies/${company.slug}`}
+                    className="group flex items-center gap-4 mx-10 shrink-0"
+                  >
+                    <div className="h-10 w-24 relative shrink-0 opacity-70 group-hover:opacity-100 transition-opacity">
+                      <Image
+                        src={company.logo}
+                        alt={company.name}
+                        fill
+                        className="object-contain brightness-0 invert"
+                      />
+                    </div>
+                    <div>
+                      <div className="text-white/60 font-semibold text-sm group-hover:text-blue-300 transition-colors whitespace-nowrap">{company.name}</div>
+                      <div className="text-white/25 text-xs">{company.tagline}</div>
+                    </div>
+                    <svg className="w-4 h-4 text-white/20 group-hover:text-blue-300 group-hover:translate-x-1 transition-all shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ─── 2. THE PRECISION IDENTITY ─── */}

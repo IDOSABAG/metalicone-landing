@@ -34,11 +34,11 @@ export default function Footer() {
           <div>
             <Link href="/" className="flex items-center mb-5">
               <Image
-                src="/images/metalicone-logo2.png"
-                alt="Metalicone Technologies"
+                src="/images/metalicone-logo-without-bg.png"
+                alt="Metalicone Group"
                 width={160}
-                height={42}
-                className="h-9 w-auto brightness-0 invert"
+                height={54}
+                className="h-14 w-auto brightness-0 invert"
               />
             </Link>
             <p className="text-white/40 text-sm leading-relaxed">

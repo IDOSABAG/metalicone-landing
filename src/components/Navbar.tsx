@@ -79,12 +79,12 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/images/metalicone-logo2.png"
-              alt="Metalicone Technologies"
+              src="/images/metalicone-logo-without-bg.png"
+              alt="Metalicone Group"
               width={180}
-              height={48}
+              height={60}
               priority
-              className={`h-10 w-auto transition-all duration-300 ${
+              className={`h-12 w-auto transition-all duration-300 ${
                 showTransparent ? "brightness-0 invert" : ""
               }`}
             />

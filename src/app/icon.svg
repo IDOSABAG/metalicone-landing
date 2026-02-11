@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="12" fill="#fff"/>
-  <!-- Red cone mark -->
-  <path d="M32 8 L44 38 L32 32 L20 38 Z" fill="#C1272D"/>
-  <!-- Gray "o" ring -->
-  <ellipse cx="32" cy="44" rx="14" ry="12" fill="none" stroke="#6D7B8D" stroke-width="5"/>
+  <rect width="64" height="64" rx="12" fill="#004B87"/>
+  <!-- House/pentagon outline -->
+  <path d="M32 6 L56 24 L56 36 L50 36 L50 28 L32 14 L14 28 L14 36 L8 36 L8 24 Z" fill="white"/>
+  <!-- M letter -->
+  <path d="M14 54 L14 28 L24 28 L32 38 L40 28 L50 28 L50 54 L42 54 L42 38 L32 50 L22 38 L22 54 Z" fill="white"/>
 </svg>
