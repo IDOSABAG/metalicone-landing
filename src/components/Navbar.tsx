@@ -23,6 +23,7 @@ const navLinks = [
   { label: "Capabilities", href: "/capabilities" },
   { label: "Global Reach", href: "/global-reach" },
   { label: "Leadership", href: "/leadership" },
+  { label: "Careers", href: "/careers" },
 ];
 
 export default function Navbar() {

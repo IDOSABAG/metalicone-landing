@@ -17,7 +17,7 @@ const footerLinks = {
     { label: "Leadership", href: "/leadership" },
     { label: "Capabilities", href: "/capabilities" },
     { label: "Global Reach", href: "/global-reach" },
-    { label: "Careers", href: "/#careers" },
+    { label: "Careers", href: "/careers" },
   ],
   Connect: [
     { label: "LinkedIn", href: "https://www.linkedin.com/company/metalicone-gmbh", external: true },
