@@ -102,11 +102,18 @@ const strategicSites: Site[] = [
 
 const allSites = [...israelSites, ...strategicSites];
 
+const flagMap: Record<string, string> = {
+  Israel: "/images/flags/israel.png",
+  Germany: "/images/flags/germany.png",
+  USA: "/images/flags/usa.png",
+  India: "/images/flags/india.png",
+};
+
 const regionSummary = [
-  { name: "Israel", count: 6, label: "Manufacturing Sites" },
-  { name: "Germany", count: 1, label: "European Hub" },
-  { name: "USA", count: 1, label: "Strategic Partnership" },
-  { name: "India", count: 1, label: "EMS & Distribution" },
+  { name: "Israel", count: 6, label: "Manufacturing Sites", flag: "/images/flags/israel.png" },
+  { name: "Germany", count: 1, label: "European Hub", flag: "/images/flags/germany.png" },
+  { name: "USA", count: 1, label: "Strategic Partnership", flag: "/images/flags/usa.png" },
+  { name: "India", count: 1, label: "EMS & Distribution", flag: "/images/flags/india.png" },
 ];
 
 /* ── Zoom circle positions: 6 points distributed vertically inside circle ── */
@@ -395,8 +402,11 @@ export default function GlobalReachPage() {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {regionSummary.map((r) => (
                     <div key={r.name} className="text-left p-3 md:p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/5">
+                      <div className="flex items-center gap-2 mb-1">
+                        <Image src={r.flag} alt={`${r.name} flag`} width={24} height={16} className="rounded-[2px] object-cover shadow-sm" />
+                        <div className="text-sm text-white/80 font-medium">{r.name}</div>
+                      </div>
                       <div className="text-2xl md:text-3xl font-bold text-white">{r.count}</div>
-                      <div className="text-sm text-white/80 font-medium">{r.name}</div>
                       <div className="text-xs text-white/50 mt-0.5">{r.label}</div>
                     </div>
                   ))}
@@ -424,7 +434,8 @@ export default function GlobalReachPage() {
           {/* ── Site cards ── */}
           <div className="mt-20">
             <FadeIn className="mb-10">
-              <h3 className="text-2xl font-bold text-foreground">
+              <h3 className="text-2xl font-bold text-foreground flex items-center gap-3">
+                <Image src="/images/flags/israel.png" alt="Israel flag" width={32} height={22} className="rounded-[3px] shadow-sm object-cover" />
                 Israel — <span className="text-deep-blue">6 Manufacturing Sites</span>
               </h3>
             </FadeIn>
@@ -463,15 +474,18 @@ export default function GlobalReachPage() {
                   <div className="bg-white border border-light-gray rounded-2xl overflow-hidden hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
                     <div className="relative h-48 overflow-hidden">
                       <Image
-                        src="/images/global-reach-map2.png"
+                        src={flagMap[site.region] || "/images/global-reach-map2.png"}
                         alt={`${site.city} — ${site.region}`}
                         fill
-                        className="object-cover blur-[2px] scale-110"
+                        className="object-cover scale-125"
                       />
-                      <div className="absolute inset-0 bg-deep-blue/60" />
+                      <div className="absolute inset-0 bg-deep-blue/65" />
                       <div className="absolute bottom-3 left-4 right-4 flex items-end justify-between">
                         <h4 className="font-bold text-white text-lg">{site.city}</h4>
-                        <span className="text-xs text-white/70 uppercase tracking-wider font-bold">
+                        <span className="flex items-center gap-1.5 text-xs text-white/70 uppercase tracking-wider font-bold">
+                          {flagMap[site.region] && (
+                            <Image src={flagMap[site.region]} alt={`${site.region} flag`} width={20} height={14} className="rounded-[2px] object-cover shadow-sm" />
+                          )}
                           {site.region}
                         </span>
                       </div>

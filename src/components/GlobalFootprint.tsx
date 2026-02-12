@@ -1,7 +1,15 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 import { useRef, useState } from "react";
+
+const flagMap: Record<string, string> = {
+  Israel: "/images/flags/israel.png",
+  Europe: "/images/flags/germany.png",
+  USA: "/images/flags/usa.png",
+  India: "/images/flags/india.png",
+};
 
 const regions = [
   {

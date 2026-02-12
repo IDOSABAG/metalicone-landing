@@ -1,9 +1,17 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+
+const slideshowImages = [
+  { src: "/images/homepage-pic1.png", alt: "Metalicone precision manufacturing facility" },
+  { src: "/images/homepage-pic2.png", alt: "Advanced CNC machining operations" },
+  { src: "/images/homepage-pic3.png", alt: "Quality inspection and engineering" },
+  { src: "/images/homepage-pic4.png", alt: "Global manufacturing capabilities" },
+];
 
 const industries = [
   { title: "Semiconductors", href: "/industries/semiconductors", badge: "Core Industry", description: "Advanced components for FAB equipment, chucks, end effectors, and chambers." },
@@ -32,27 +40,54 @@ const capabilities = [
 ];
 
 const worldPoints = [
-  { id: "israel", label: "Israel", x: 55.5, y: 50, count: "6 Sites" },
-  { id: "germany", label: "Germany", x: 50.5, y: 38.5, count: "European Hub" },
-  { id: "usa", label: "USA", x: 24.0, y: 43.5, count: "Strategic Partner" },
-  { id: "india", label: "India", x: 69.5, y: 57.5, count: "EMS & Distribution" },
+  { id: "israel", label: "Israel", x: 55.5, y: 50, count: "6 Sites", flag: "/images/flags/israel.png" },
+  { id: "germany", label: "Germany", x: 50.5, y: 38.5, count: "European Hub", flag: "/images/flags/germany.png" },
+  { id: "usa", label: "USA", x: 24.0, y: 43.5, count: "Strategic Partner", flag: "/images/flags/usa.png" },
+  { id: "india", label: "India", x: 69.5, y: 57.5, count: "EMS & Distribution", flag: "/images/flags/india.png" },
 ];
 
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % slideshowImages.length);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(nextSlide, 5000);
+    return () => clearInterval(timer);
+  }, [nextSlide]);
+
   return (
     <main>
       {/* ─── HERO + BANNER WRAPPER ─── */}
       <div className="min-h-screen flex flex-col bg-[#0a1628]">
       {/* ─── 1. HERO ─── */}
       <section className="relative flex-1 flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#060d1a] via-[#0d1f3c] to-[#0a1628]">
-        <Image
-          src="/images/home-page-picture.jpg"
-          alt="Metalicone Group — precision components for defense, aerospace, agriculture, and industrial markets"
-          fill
-          className="object-contain object-top sm:object-cover sm:object-[center_20%]"
-          quality={90}
-          priority
-        />
+        {/* Slideshow background */}
+        <AnimatePresence>
+          {slideshowImages.map((img, i) => (
+            i === currentSlide && (
+              <motion.div
+                key={img.src}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.2, ease: "easeInOut" }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-contain object-top sm:object-cover sm:object-[center_20%]"
+                  quality={90}
+                  priority={i === 0}
+                />
+              </motion.div>
+            )
+          ))}
+        </AnimatePresence>
         {/* Mobile: transparent top (show full image) → rich dark below */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0d1f3c]/40 to-[#0a1628] sm:from-transparent sm:via-transparent sm:to-[#0a1628]/40" />
         <div className="absolute inset-0 hidden sm:block bg-gradient-to-r from-[#0a1628]/10 via-transparent to-[#0a1628]/10" />
@@ -74,10 +109,10 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight"
           >
+            We Deliver Innovative Solutions
+            <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-200 to-white" style={{ textShadow: "none" }}>
-              Advanced Systems Engineering,
-              <br />
-              Integration, Production &amp; Delivery.
+              to the World&apos;s Toughest Challenges.
             </span>
           </motion.h1>
 
@@ -568,8 +603,9 @@ export default function Home() {
                     <span className="relative inline-flex rounded-full h-3 w-3 sm:h-4 sm:w-4 bg-white border-2 border-white/80 shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
                   </span>
                   {/* Label */}
-                  <div className="absolute left-1/2 -translate-x-1/2 -top-9 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
-                    <span className="bg-white text-deep-blue text-xs font-bold px-3 py-1 rounded-lg shadow-lg">
+                  <div className="absolute left-1/2 -translate-x-1/2 -top-11 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+                    <span className="bg-white text-deep-blue text-xs font-bold px-3 py-1.5 rounded-lg shadow-lg inline-flex items-center gap-1.5">
+                      <Image src={pt.flag} alt="" width={18} height={12} className="rounded-[2px] object-cover" />
                       {pt.label} — {pt.count}
                     </span>
                   </div>
@@ -595,9 +631,16 @@ export default function Home() {
           <div className="mt-6 sm:mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
             {worldPoints.map((pt, i) => (
               <FadeIn key={pt.id} delay={0.1 + i * 0.06}>
-                <div className="bg-off-white border border-light-gray rounded-xl p-3.5 sm:p-5 text-center">
+                <div className="bg-off-white border border-light-gray rounded-xl p-3.5 sm:p-5 text-center flex flex-col items-center gap-2">
+                  <Image
+                    src={pt.flag}
+                    alt={`${pt.label} flag`}
+                    width={36}
+                    height={24}
+                    className="rounded-sm shadow-sm object-cover"
+                  />
                   <div className="text-base sm:text-lg font-bold text-foreground">{pt.label}</div>
-                  <div className="text-xs sm:text-sm text-charcoal mt-1">{pt.count}</div>
+                  <div className="text-xs sm:text-sm text-charcoal">{pt.count}</div>
                 </div>
               </FadeIn>
             ))}
